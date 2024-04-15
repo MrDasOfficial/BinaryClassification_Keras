@@ -1,6 +1,6 @@
-# This is a folder of many classification projects
-### Feel free to check through the different branches
+# This folder is dedicated to binary classification projects
+### Feel free to check different projects
 
 ```
-click on the branches option
+Check Branches option to view list of projects
 ```
