@@ -1,6 +1,6 @@
 import numpy as np
 from keras.models import load_model
-from diabetic_pro import x_test,y_test
+from model_training import x_test,y_test
 
 
 loaded_model = load_model("model_diabetics.h5")
