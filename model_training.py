@@ -5,8 +5,8 @@ from keras.layers import Dense
 
 data = np.loadtxt("pima-indians-diabetes.csv",delimiter=",") # loading dataset, delimiter is used for avoiding ','
 
-x_input = data[:,:-1]  # slicing ; all the rows - 0 to 7th column (avoiding last column)
-y_output = data[:,-1]  # slicing ; all the rows - last column only
+x_input = data[:,:-1]  # slicing ; all the rows , 0 to 7th column (avoiding last column)
+y_output = data[:,-1]  # slicing ; all the rows , last column only
 print(x_input.shape)
 # shape of x_input --> (768,8)
 
