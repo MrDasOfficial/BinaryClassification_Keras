@@ -5,14 +5,22 @@ from keras.layers import Dense
 
 data = np.loadtxt("pima-indians-diabetes.csv",delimiter=",") # loading dataset, delimiter is used for avoiding ','
 
-x_input = data[:,:-1]
-y_output = data[:,-1]
+x_input = data[:,:-1]  # slicing ; all the rows - 0 to 7th column (avoiding last column)
+y_output = data[:,-1]  # slicing ; all the rows - last column only
+print(x_input.shape)
+# shape of x_input --> (768,8)
+# shape of y_output --> (8,)
 
+# need to split the data into train or test data
+#  760 rows for training
+x_train = x_input[:760]
+y_train = y_output[:760]
 
-# print(x_input)
-# print(y_output)
+# remaining 8 rows for testing
+x_test = x_input[760:]
+y_test = y_output[760:]
 
-# model ------------
+# creating model by adding layers ------------
 
 model = Sequential()
 model.add(Dense(12,activation = "relu", input_shape=(8,)))
