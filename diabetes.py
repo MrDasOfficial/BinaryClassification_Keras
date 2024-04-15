@@ -9,6 +9,7 @@ x_input = data[:,:-1]  # slicing ; all the rows - 0 to 7th column (avoiding last
 y_output = data[:,-1]  # slicing ; all the rows - last column only
 print(x_input.shape)
 # shape of x_input --> (768,8)
+
 # shape of y_output --> (8,)
 
 # need to split the data into train or test data
@@ -23,8 +24,10 @@ y_test = y_output[760:]
 # creating model by adding layers ------------
 
 model = Sequential()
-model.add(Dense(12,activation = "relu", input_shape=(8,)))
-model.add(Dense(8,activation="relu"))
+model.add(Dense(32,activation = "relu", input_shape=(8,)))
+model.add(Dense(128,activation="relu"))
+model.add(Dense(64,activation="relu"))
+model.add(Dense(22,activation="relu"))
 model.add(Dense(1,activation="sigmoid"))
 
 # relu rectified linear unit activation ==== > f(x) = max(0,x)
@@ -35,7 +38,10 @@ model.add(Dense(1,activation="sigmoid"))
 # s(2) ==>  0.88
 
 model.compile(loss="binary_crossentropy",optimizer="adam",metrics = ["accuracy"])
-model.fit(x_input,y_output,epochs = 100,batch_size=10)
+model.fit(x_train,y_train,epochs = 500,batch_size=5)
+
+model.save("model._diabetics.h5")
+# the model has a training accuracy of 0.9987 and is saved into the "model_diabetics.h5" file
 
 
 
